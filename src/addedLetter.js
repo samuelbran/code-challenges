@@ -1,20 +1,25 @@
 const addedLetter = (ogString, altString) => {
-  let altStringArr = [];
+   let dict = {};
 
-  for (let index = 0; index < altString.length; index++) {
-    altStringArr.push(altString[index]);
-  }
-
-  for (let index = 0; index < ogString.length; index++) {
-    const letter = ogString[index];
-    const isInOgString = altStringArr.indexOf(letter);
-
-    if (isInOgString >= 0) {
-      altStringArr.splice(isInOgString, 1);
+  for (let i = 0; i < string1.length; i++) {
+    let currentLetter = string1[i];
+    if (!dict[currentLetter]) {
+      dict[currentLetter] = 1;
+    } else {
+      dict[currentLetter] += 1;
     }
   }
 
-  return altStringArr[0];
+  for (let i = 0; i < string2.length; i++) {
+    let count = 1;
+    let currentLetter = string2[i];
+
+    for (let j = i + 1; j < string2.length; j++) {
+      if (string2[j] === currentLetter) count++;
+    }
+    if (count > dict[currentLetter]) return currentLetter;
+  }
+  return "";
 };
 
 module.exports = addedLetter;
