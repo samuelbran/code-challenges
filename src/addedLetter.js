@@ -1,4 +1,4 @@
-const addedLetter = (ogString, altString) => {
+const addedLetter = (string1, string2) => {
    let dict = {};
 
   for (let i = 0; i < string1.length; i++) {
